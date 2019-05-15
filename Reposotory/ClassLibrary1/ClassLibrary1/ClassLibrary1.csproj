@@ -64,12 +64,10 @@
   <ItemGroup>
     <Compile Include="Config\Config.cs" />
     <Compile Include="PageObjects\AddClientPages.cs" />
-    <Compile Include="PageObjects\DeleteClientPages.cs" />
     <Compile Include="PageObjects\ClientSearchPages.cs" />
     <Compile Include="PageObjects\SSTloginPages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\AddClient.cs" />
-    <Compile Include="Tests\DeleteClient.cs" />
     <Compile Include="Tests\ClientSearch.cs" />
     <Compile Include="Tests\SSTlogin.cs" />
     <Compile Include="WebDriver\WebDriverUtils.cs" />

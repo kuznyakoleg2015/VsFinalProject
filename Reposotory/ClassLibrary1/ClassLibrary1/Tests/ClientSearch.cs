@@ -29,14 +29,6 @@ namespace ClassLibrary1.Tests
                 ClieantSearchpage.FillOutSearchBox(testSearch);
 
                 ClieantSearchpage.ClickSearchBtn();
-
-                var element = driver.FindElement(By.XPath("your_xpath"));
-                if (!string.IsNullOrEmpty(element.Text) && element.Text.Contains("your_text"))
-                {
-
-                }
-
-
             }
         }
 
