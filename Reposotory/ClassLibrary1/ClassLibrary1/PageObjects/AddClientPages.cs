@@ -24,13 +24,6 @@ namespace ClassLibrary1.PageObjects
         private SelectElement StateDropdown => new SelectElement(_driver.FindElement(By.Name("state")));
         private IWebElement ZipImput => _driver.FindElement(By.Name("zipCode"));
         private IWebElement SaveButton => _driver.FindElement(By.TagName("button"));
-
-		//TODO: you do not need this method
-        //internal void FillOutClient(string customerFirstName, string customerLastName, string customerPhoneNumber, string customerEmail)
-        //{
-            //throw new NotImplementedException();
-        //}
-
         private IWebElement PhoneImput => _driver.FindElement(By.Name("phoneNumaber"));
         private IWebElement EmailImput => _driver.FindElement(By.Name("email"));
 

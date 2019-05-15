@@ -15,13 +15,12 @@ namespace ClassLibrary1.PageObjects
         {
             _driver = driver;
         }
-
+        private IWebElement SSTloginPage => _driver.FindElement(By.Id("root"));
         private IWebElement SSTloginUsername => _driver.FindElement(By.Id("username"));
         private IWebElement SSTloginPassword => _driver.FindElement(By.Id("password"));
-        private IWebElement LoginButton => _driver.FindElement(By.LinkText("Login"));
-        private IWebElement Nav => _driver.FindElement(By.CssSelector("ul.nav navbar-nav"));
-        private IWebElement LocatingAdmin => _driver.FindElement(By.ClassName("dropdown-toggle"));
-        private IWebElement LogOut => _driver.FindElement(By.ClassName("dropdown-menu"));
+        private IWebElement LoginButton => _driver.FindElement(By.CssSelector("#root > div > div > form > div:nth-child(3) > div > div > button"));
+        private IWebElement LogOut => _driver.FindElement(By.LinkText("Logout"));
+        
 
 
         public void FillOut(string username, string password)
@@ -29,16 +28,12 @@ namespace ClassLibrary1.PageObjects
             SSTloginUsername.SendKeys(username);
             SSTloginPassword.SendKeys(password);
         }
+
         public void ClickLoginButton()
         {
             LoginButton.Click();
         }
 
-		//TODO: you can combine the above two methods into one which will enter the username, the password and click Login button
-        public void ClickAdminBtn()
-        {
-            LocatingAdmin.Click();
-        }
         public void ClickLogOut()
         {
             LogOut.Click();

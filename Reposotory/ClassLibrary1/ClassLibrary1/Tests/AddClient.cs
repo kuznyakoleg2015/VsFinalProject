@@ -16,6 +16,9 @@ namespace ClassLibrary1.Tests
         [Test]
         public void AddClientTest()
         {
+            var testUsername2 = "admin";
+            var testPassword2 = "2VLu=j^ykC";
+
             var faker = new Faker();
             var customerFirstName = faker.Name.FirstName();
             var customerLastName = faker.Name.LastName();
@@ -26,15 +29,21 @@ namespace ClassLibrary1.Tests
 
             using (var driver = new ChromeDriver())
             {
+
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
                 driver.Navigate().GoToUrl("https://nitro.duckdns.org/sst-classes");
 
-				//TODO: you need to log in first
+                var SSTloginPage = new SSTloginPages(driver);
+
+                SSTloginPage.FillOut(testUsername2, testPassword2);
+
+                SSTloginPage.ClickLoginButton();
+
+                
 
                 var AddClientPage = new AddClientPages(driver);
 
-				//TODO: your FillOutClient method wants more params:
 	            var companyName = "MyCompany";
 	            var zipCode = "60640";
 				AddClientPage.FillOutClient(companyName, customerFirstName, customerLastName, zipCode, customerPhoneNumber, customerEmail);
@@ -43,8 +52,6 @@ namespace ClassLibrary1.Tests
                 AddClientPage.TeacherId("Teacher One");
                 AddClientPage.SelectState("Iowa");
                 AddClientPage.ClickSaveButton();
-
-				//TODO: Verify a table with your student record appears.
 			}
 		}
 

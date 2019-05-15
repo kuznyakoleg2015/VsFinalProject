@@ -16,7 +16,7 @@ namespace ClassLibrary1.Tests
         [Test]
         public void SSTloginTest()
         {
-			//TODO: Think how to avoid duplicating the credentials in each test. Also what will you do if for different environments we need different credentials?
+			
             var testUsername = "admin";
             var testPassword = "2VLu=j^ykC";
             
@@ -33,13 +33,9 @@ namespace ClassLibrary1.Tests
 
                 SSTloginPage.ClickLoginButton();
 
-				//TODO: Verify the Clients page opens
-
-				SSTloginPage.ClickAdminBtn();
-
                 SSTloginPage.ClickLogOut();
 
-				//TODO: Verify the Login page opens again
+				
 			}
 		}
         
