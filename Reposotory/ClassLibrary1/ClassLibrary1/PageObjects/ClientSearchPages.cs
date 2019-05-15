@@ -19,9 +19,10 @@ namespace ClassLibrary1.PageObjects
 
 		
 	    private IWebElement SearchBox => _driver.FindElement(By.Id("q"));
-		
-		private IWebElement SearchBtn => _driver.FindElement(By.ClassName("btn btn-primary"));
-       
+        private IWebElement ResultsTableRow => _driver.FindElement(By.XPath("//table[@class='table']//tbody//tr[1]"));
+        private IWebElement SearchBtn => _driver.FindElement(By.XPath("//button[contains(., 'Search')]"));
+        
+
         public void FillOutSearchBox(string q)
         {
             SearchBox.SendKeys(q);
@@ -30,6 +31,12 @@ namespace ClassLibrary1.PageObjects
         {
             SearchBtn.Click();
         }
-        
+
+        public string GetResultsTableRowText()
+        {
+            return ResultsTableRow.Text;
+        }
+
+
     }
 }

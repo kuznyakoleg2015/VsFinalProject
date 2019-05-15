@@ -16,15 +16,15 @@ namespace ClassLibrary1.PageObjects
             _driver = driver;
         }
 
-        private IWebElement AddClient => _driver.FindElement(By.LinkText("Add Client"));
+        private IWebElement AddClient => _driver.FindElement(By.PartialLinkText("Add Client"));
         private SelectElement TeacherDropdown => new SelectElement(_driver.FindElement(By.Name("teacherId")));
         private IWebElement CompanyImput => _driver.FindElement(By.Name("company"));
         private IWebElement FirstNameInput => _driver.FindElement(By.Name("firstName"));
         private IWebElement LastNameInput => _driver.FindElement(By.Name("lastName"));
         private SelectElement StateDropdown => new SelectElement(_driver.FindElement(By.Name("state")));
         private IWebElement ZipImput => _driver.FindElement(By.Name("zipCode"));
-        private IWebElement SaveButton => _driver.FindElement(By.TagName("button"));
-        private IWebElement PhoneImput => _driver.FindElement(By.Name("phoneNumaber"));
+        private IWebElement SaveButton => _driver.FindElement(By.XPath("//button[@type='submit']"));
+        private IWebElement PhoneImput => _driver.FindElement(By.Name("phoneNumber"));
         private IWebElement EmailImput => _driver.FindElement(By.Name("email"));
 
 

@@ -43,7 +43,7 @@ namespace ClassLibrary1.Tests
                 
 
                 var AddClientPage = new AddClientPages(driver);
-
+                AddClientPage.ClickAddClient();
 	            var companyName = "MyCompany";
 	            var zipCode = "60640";
 				AddClientPage.FillOutClient(companyName, customerFirstName, customerLastName, zipCode, customerPhoneNumber, customerEmail);
@@ -52,7 +52,11 @@ namespace ClassLibrary1.Tests
                 AddClientPage.TeacherId("Teacher One");
                 AddClientPage.SelectState("Iowa");
                 AddClientPage.ClickSaveButton();
-			}
+
+                var clientSearchPage = new ClientSearchPages(driver);
+                clientSearchPage.GetResultsTableRowText().ShouldContain(customerFirstName);
+                clientSearchPage.GetResultsTableRowText().ShouldContain(customerLastName);
+            }
 		}
 
     }

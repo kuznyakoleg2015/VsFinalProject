@@ -18,7 +18,7 @@ namespace ClassLibrary1.Tests
         {
             var TestUsername = "admin";
             var TestPassword = "2VLu=j^ykC";
-            var testSearch = "ilka@mailinator.com ";
+            var testSearch = "ilka@mailinator.com";
 
             using (var driver = new ChromeDriver())
             {
@@ -27,15 +27,16 @@ namespace ClassLibrary1.Tests
                 driver.Navigate().GoToUrl("https://nitro.duckdns.org/sst-classes");
 
                 var SSTloginPage = new SSTloginPages(driver);
-                var ClieantSearchpage = new ClientSearchPages(driver);
+                var ClientSearchPage = new ClientSearchPages(driver);
 
                 SSTloginPage.FillOut(TestUsername, TestPassword);
 
                 SSTloginPage.ClickLoginButton();
 
-                ClieantSearchpage.FillOutSearchBox(testSearch);
+                ClientSearchPage.FillOutSearchBox(testSearch);
 
-                ClieantSearchpage.ClickSearchBtn();
+                ClientSearchPage.ClickSearchBtn();
+                ClientSearchPage.GetResultsTableRowText().ShouldContain(testSearch);
             }
         }
 
