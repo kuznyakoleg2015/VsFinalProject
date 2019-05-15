@@ -33,6 +33,8 @@ namespace ClassLibrary1.PageObjects
         {
             LoginButton.Click();
         }
+
+		//TODO: you can combine the above two methods into one which will enter the username, the password and click Login button
         public void ClickAdminBtn()
         {
             LocatingAdmin.Click();

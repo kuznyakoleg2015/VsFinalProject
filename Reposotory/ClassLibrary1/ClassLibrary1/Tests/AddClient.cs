@@ -30,15 +30,23 @@ namespace ClassLibrary1.Tests
 
                 driver.Navigate().GoToUrl("https://nitro.duckdns.org/sst-classes");
 
+				//TODO: you need to log in first
+
                 var AddClientPage = new AddClientPages(driver);
-                AddClientPage.FillOutClient(customerFirstName, customerLastName, customerPhoneNumber, customerEmail);
+
+				//TODO: your FillOutClient method wants more params:
+	            var companyName = "MyCompany";
+	            var zipCode = "60640";
+				AddClientPage.FillOutClient(companyName, customerFirstName, customerLastName, zipCode, customerPhoneNumber, customerEmail);
 
 
                 AddClientPage.TeacherId("Teacher One");
                 AddClientPage.SelectState("Iowa");
                 AddClientPage.ClickSaveButton();
-            }
-        }
+
+				//TODO: Verify a table with your student record appears.
+			}
+		}
 
     }
 }

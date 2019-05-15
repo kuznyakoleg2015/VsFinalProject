@@ -24,11 +24,15 @@ namespace ClassLibrary1.Tests
 
                 driver.Navigate().GoToUrl("https://nitro.duckdns.org/sst-classes");
 
+				//TODO: log in
+
                 var ClieantSearchpage = new ClientSearchPages(driver);
 
                 ClieantSearchpage.FillOutSearchBox(testSearch);
 
                 ClieantSearchpage.ClickSearchBtn();
+
+				//TODO: verify the correct user was found
             }
         }
 
